@@ -1,21 +1,49 @@
 {
   "name": "yu-gi-oh-game",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "cheerio": "^1.0.0-rc.2",
-    "express": "^4.15.3",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
-    "request": "^2.81.0"
-  },
-  "devDependencies": {
-    "react-scripts": "1.0.10"
-  },
+  "version": "1.0.0",
+  "description": "React based card game",
+  "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "test": "npm run test:lint & npm run test:client",
+    "test:lint": "eslint src && flow",
+    "test:client": "jest --coverage ./test",
+    "precommit": "npm test",
+    "prepush": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OnuPete/yu-gi-oh-game.git"
+  },
+  "keywords": [
+    "yugioh",
+    "react",
+    "redux",
+    "node"
+  ],
+  "author": "Peter Reyes",
+  "license": "ISC",
+  "broswerlist": [
+    ">1%"
+  ],
+  "bugs": {
+    "url": "https://github.com/OnuPete/yu-gi-oh-game/issues"
+  },
+  "homepage": "https://github.com/OnuPete/yu-gi-oh-game#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.0.1",
+    "babel-jest": "^21.2.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-flow": "^6.23.0",
+    "eslint": "^4.7.2",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-plugin-compat": "^1.0.4",
+    "eslint-plugin-flowtype": "^2.36.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.4.0",
+    "flow-bin": "^0.55.0",
+    "husky": "^0.14.3",
+    "jest": "^21.2.1"
   }
 }
