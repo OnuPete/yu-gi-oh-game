@@ -13,8 +13,7 @@
     "test": "npm run lint && flow & npm run test:client",
     "lint": "eslint src webpack.confic.babel.js --ext .js,.jsx --fix",
     "test:client": "jest --coverage ./test",
-    "precommit": "npm test",
-    "prepush": "npm test && npm run prob:build"
+    "precommit": "npm test"
   },
   "repository": {
     "type": "git",
