@@ -4,11 +4,17 @@
   "description": "React based card game",
   "main": "index.js",
   "scripts": {
-    "test": "npm run test:lint & npm run test:client",
-    "test:lint": "eslint src && flow",
+    "start": "npm run start:dev",
+    "start:prod": "NODE_ENV=production pm2 start lib/server && pm2 logs",
+    "stop:prod": "pm2 delete server",
+    "start:dev": "nodemon -e js,jsx --ignore lib --ignore dist --watch src/server --exec babel-node src/server",
+    "dev:wds": "webpack-dev-server --progress",
+    "prod:build": "rimraf lib && babel src -d lib && NODE_ENV=production webpack -p --progress",
+    "test": "npm run lint && flow & npm run test:client",
+    "lint": "eslint src webpack.confic.babel.js --ext .js,.jsx --fix",
     "test:client": "jest --coverage ./test",
     "precommit": "npm test",
-    "prepush": "npm test"
+    "prepush": "npm test && npm run prob:build"
   },
   "repository": {
     "type": "git",
@@ -31,10 +37,16 @@
   "homepage": "https://github.com/OnuPete/yu-gi-oh-game#readme",
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.1",
     "babel-jest": "^21.2.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-flow-react-proptypes": "^5.2.0",
     "babel-preset-env": "^1.6.0",
+    "babel-preset-es2015": "^6.24.1",
     "babel-preset-flow": "^6.23.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
     "eslint": "^4.7.2",
     "eslint-config-airbnb": "^15.1.0",
     "eslint-plugin-compat": "^1.0.4",
@@ -42,8 +54,30 @@
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.4.0",
+    "fetch-mock": "^5.12.2",
     "flow-bin": "^0.55.0",
     "husky": "^0.14.3",
-    "jest": "^21.2.1"
+    "jest": "^21.2.1",
+    "nodemon": "^1.12.1",
+    "pm2": "^2.7.1",
+    "redux-mock-store": "^1.3.0",
+    "rimraf": "^2.6.2",
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "^2.9.1"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "compression": "^1.7.1",
+    "express": "^4.16.1",
+    "isomorphic-fetch": "^2.2.1",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-hot-loader": "^3.0.0-beta.7",
+    "react-redux": "^5.0.6",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2",
+    "redux-actions": "^2.2.1",
+    "redux-thunk": "^2.2.0"
   }
 }
