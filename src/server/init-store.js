@@ -12,7 +12,7 @@ const initStore = (plainPartialState: ?Object) => {
     // flow-disable-next-line
     preloadedState.hello = Object.assign(
       helloReducer(undefined, {}),
-      { hello: plainPartialState.hello })
+      plainPartialState.hello)
   }
 
   return createStore(combineReducers({ hello: helloReducer }),

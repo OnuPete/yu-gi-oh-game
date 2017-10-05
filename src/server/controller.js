@@ -3,7 +3,7 @@
 export const homePage = () => null
 
 export const helloPage = () => ({
-  hello: { message: 'Server-side preloaded messge' },
+  hello: { message: 'Server-side preloaded message' },
 })
 
 export const helloAsyncPage = () => ({
