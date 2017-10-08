@@ -23,7 +23,7 @@ const styles = {
     borderRadius: '5px',
     outline: 'none',
     '&:hover': {
-      borderColor: 'orange'
+      borderColor: 'orange',
     },
     '&:active': {
       backgroundColor: 'green',
@@ -31,7 +31,7 @@ const styles = {
   },
 }
 
-const HomePage = ({ classes } : { classes: Object }) => (
+const HomePage = ({ classes }: { classes: Object }) => (
   <div>
     <Helmet meta={[
       { name: 'description', content: 'Hello App is an app to say hello' },

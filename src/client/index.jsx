@@ -37,6 +37,7 @@ if (module.hot) {
 }
 
 const jssServerSide = document.querySelector(JSS_SSR_SELECTOR)
+// flow-disable-next-line
 jssServerSide.parentNode.removeChild(jssServerSide)
 
 setUpSocket(store)
