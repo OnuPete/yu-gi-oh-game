@@ -11,6 +11,7 @@ import { BrowserRouter } from 'react-router-dom'
 import App from '../shared/app'
 import { APP_CONTAINER_SELECTOR } from '../shared/config'
 import store from './store/store'
+import setUpSocket from './socket'
 
 const rootEl = document.querySelector(APP_CONTAINER_SELECTOR)
 
@@ -34,3 +35,5 @@ if (module.hot) {
     ReactDOM.render(wrapApp(NextApp, store), rootEl)
   })
 }
+
+setUpSocket(store)
