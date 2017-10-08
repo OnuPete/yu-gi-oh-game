@@ -5,10 +5,10 @@ import {
   IO_DISCONNECT,
   IO_CLIENT_HELLO,
   IO_CLIENT_JOIN_ROOM,
-  IO_SERVER_HELLO
+  IO_SERVER_HELLO,
 } from '../shared/config'
 
-/* eslint-disable no-console*/
+/* eslint-disable no-console */
 const setUpSocket = (io: Object) => {
   io.on(IO_CONNECT, (socket) => {
     console.log('[socket io] A client connected')

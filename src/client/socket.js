@@ -1,3 +1,5 @@
+// @flow
+
 import socketIOClient from 'socket.io-client'
 
 import {
@@ -5,7 +7,7 @@ import {
   IO_DISCONNECT,
   IO_CLIENT_HELLO,
   IO_CLIENT_JOIN_ROOM,
-  IO_SERVER_HELLO
+  IO_SERVER_HELLO,
 } from '../shared/config'
 
 const socket = socketIOClient(window.location.host)
