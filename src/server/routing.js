@@ -5,13 +5,16 @@ import {
   helloPage,
   helloAsyncPage,
   helloEndpoint,
-} from './controller'
+} from './controllers/controller'
+
+import cardsController from './controllers/card'
 
 import {
   HOME_PAGE_ROUTE,
   HELLO_PAGE_ROUTE,
   HELLO_ASYNC_PAGE_ROUTE,
   helloEndpointRoute,
+  cardEndpointRoute,
 } from '../shared/routes'
 
 import renderApp from './render-app'
@@ -33,6 +36,8 @@ export default (app: Object) => {
   app.get(helloEndpointRoute(), (req, res) => {
     res.json(helloEndpoint(req.params.num))
   })
+
+  app.get(cardEndpointRoute(), cardsController.show)
 
   app.get('/500', () => {
     throw Error('Fake Internal Server Error')
