@@ -11,25 +11,25 @@ const initialState: {
 }
 
 const helloReducer = createReducer(initialState, {
-  SAY_HELLO(state: any, action: { type: string, payload: string, }) {
+  SAY_HELLO(state: Object, action: { type: string, payload: string, }) {
     return {
       ...state,
       message: action.payload,
     }
   },
-  SAY_HELLO_ASYNC_REQUEST(state: any) {
+  SAY_HELLO_ASYNC_REQUEST(state: Object) {
     return {
       ...state,
       messageAsync: 'Loading...',
     }
   },
-  SAY_HELLO_ASYNC_SUCCESS(state: any, action: { type: string, payload: string }) {
+  SAY_HELLO_ASYNC_SUCCESS(state: Object, action: { type: string, payload: string }) {
     return {
       ...state,
       messageAsync: action.payload,
     }
   },
-  SAY_HELLO_ASYNC_FAILURE(state: any) {
+  SAY_HELLO_ASYNC_FAILURE(state: Object) {
     return {
       ...state,
       messageAsync: 'No message received, please check your connection',
